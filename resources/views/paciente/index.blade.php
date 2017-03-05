@@ -14,8 +14,7 @@
       </div>
       <div class="panel-body">
 	<a href="/pacientes/cria">
-	  <span class="glyphicon glyphicon-plus"></span>
-	  Pacientes
+	  Adicionar um paciente
 	</a>
       </div>
     </div>
@@ -28,9 +27,9 @@
 	  <th>Nome</th>
 	  <th>CPF</th>
 	  <th>Email</th>
-	  <th>Visualizar</th>
-	  <th>Editar</th>
-	  <th>Remover</th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
 	</tr>
       </thead>
       <tbody>
@@ -42,19 +41,16 @@
 	  <td>{{ $paciente->email }}</td>
 	  <td>
 	    <a href="/pacientes/{{ $paciente->id }}">
-	      <span class="glyphicons glyphicons-eye-open"></span>
 	      Visualizar
 	    </a>
 	  </td>
 	  <td>
 	    <a href="/pacientes/{{ $paciente->id }}/edicao">
-	      <span class="glyphicons glyphicons-pencil"></span>
 	      Editar
 	    </a>
 	  </td>
 	  <td>
 	    <a href="/pacientes/{{ $paciente->id }}/remove">
-	      <span class="glyphicons glyphicons-bin"></span>
 	      Remover
 	    </a>
 	  </td>
