@@ -27,6 +27,11 @@
 	  Remover
 	</a>
       </div>
+      <div class="panel-body">
+	<a href="/medicos/{{$medico->id}}/pedido">
+	  Fazer pedido
+	</a>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -40,6 +45,29 @@
 	<li class="list-group-item">{{ $medico->email }}</li>
       </ul>
     </div>
+  </div>
+  <div class="col-md-6">
+       <div class="panel panel-primary">
+       <div class="panel-heading">Pedidos</div>
+       <table class="table table-striped">
+       <thead>
+	<tr>
+	  <th>Id</th>
+	  <th>Paciente</th>
+	  <th>Médico</th>
+	  <th>Exames</th>
+	</tr>
+      </thead>
+      <tbody>
+	@foreach($pedidos as $pedido)
+	<tr>
+	  <td>{{ $pedido->id }}</td>
+	  <td>{{ $pedido->paciente->nome }}</td>
+	  <td>{{ $pedido->medico->nome }}</td>
+	</tr>
+	@endforeach
+      </tbody>
+    </table>
   </div>
 </div>
 @endsection

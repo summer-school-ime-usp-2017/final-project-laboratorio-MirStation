@@ -40,5 +40,6 @@ Route::post('/medicos', 'MedicoController@armazena');
 Route::get('/medicos/{medico}', 'MedicoController@show');
 Route::get('/medicos/{medico}/remove', 'MedicoController@remove');
 Route::get('/medicos/{medico}/edicao', 'MedicoController@edicao');
+Route::get('/medicos/{medico}/pedido', 'MedicoController@pedido');
 Route::patch('/medicos/{medico}', 'MedicoController@atualiza');
-
+Route::post('/medicos/{medico}', 'MedicoController@armazenaPedido');
