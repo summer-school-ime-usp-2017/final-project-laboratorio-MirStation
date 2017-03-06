@@ -38,18 +38,24 @@ class MedicoController extends Controller
     }
 
     public function armazenaPedido(Medico $medico) {
-    	   // $exames = request()->service;
-	   // dd($exames);
+    	   $this->validate(request(), [
+	   'service' => 'required'
+	   ]);
+    	   $exames = request()->service;
     	   $pedido = new Pedido();
 	   $pedido->paciente_id = request()->paciente_id;
 	   $pedido->medico_id = request()->medico_id;
 	   $pedido->save();
+	   foreach ($exames as $exame_id) {
+	   	   $exame_nome = Exame::find($exame_id)->nome;
+	   	   $pedido->exames()->attach($exame_id,['exame_nome' => $exame_nome]);	   
+	   }
 	   return redirect("/medicos/$medico->id");
     }
 
     public function show(Medico $medico) {
-    	   $pedidos = Pedido::where('medico_id',$medico->id)->get();
-    	   return view('medico.show', compact('medico','pedidos'));
+    	   $pedidos = Pedido::where('medico_id', $medico->id)->get();
+	   return view('medico.show', compact('medico','pedidos'));
     }
 
     public function edicao(Medico $medico) {

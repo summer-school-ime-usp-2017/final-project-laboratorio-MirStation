@@ -18,6 +18,6 @@ class Pedido extends Model
     }
 
     public function exames() {
-    	   return $this->belongsToMany(Exame::class);
+    	   return $this->belongsToMany(Exame::class)->withPivot('exame_nome')->withTimestamps();
     }
 }

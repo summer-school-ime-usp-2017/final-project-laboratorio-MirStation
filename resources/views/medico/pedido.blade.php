@@ -13,13 +13,24 @@
 	<h3 class="panel-title">Ações</h3>
       </div>
       <div class="panel-body">
-	<a href="/medicos">
+	<a href="/medicos/{{$medico->id}}">
 	  Voltar
 	</a>
       </div>
     </div>
   </div>
   <div class="col-md-6">
+
+    @if(count($errors) > 0)
+    <div class="alert alert-danger">
+      <ul>
+	@foreach ($errors->all() as $message)
+	<li>{{ $message }}</li>
+	@endforeach
+      </ul>
+    </div>
+    @endif
+
     <form action="/medicos/{{$medico->id}}" method="POST">
       {{ csrf_field() }}
       <div class="form-group">

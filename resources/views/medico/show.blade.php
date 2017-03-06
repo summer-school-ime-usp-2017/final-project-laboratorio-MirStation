@@ -64,6 +64,13 @@
 	  <td>{{ $pedido->id }}</td>
 	  <td>{{ $pedido->paciente->nome }}</td>
 	  <td>{{ $pedido->medico->nome }}</td>
+	  <td>
+	  <ul>
+	  @foreach($pedido->exames as $exame)
+	  <li>{{$exame->pivot->exame_nome}}</li>
+	  @endforeach
+	  </ul>
+	  </td>
 	</tr>
 	@endforeach
       </tbody>
