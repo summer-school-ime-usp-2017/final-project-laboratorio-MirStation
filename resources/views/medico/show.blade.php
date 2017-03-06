@@ -54,7 +54,6 @@
 	<tr>
 	  <th>Id</th>
 	  <th>Paciente</th>
-	  <th>Médico</th>
 	  <th>Exames</th>
 	</tr>
       </thead>
@@ -63,7 +62,6 @@
 	<tr>
 	  <td>{{ $pedido->id }}</td>
 	  <td>{{ $pedido->paciente->nome }}</td>
-	  <td>{{ $pedido->medico->nome }}</td>
 	  <td>
 	  <ul>
 	  @foreach($pedido->exames as $exame)

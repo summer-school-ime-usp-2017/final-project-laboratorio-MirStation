@@ -41,5 +41,33 @@
       </ul>
     </div>
   </div>
+  <div class="col-md-6">
+       <div class="panel panel-primary">
+       <div class="panel-heading">Pedidos</div>
+       <table class="table table-striped">
+       <thead>
+	<tr>
+	  <th>Id</th>
+	  <th>Médico</th>
+	  <th>Exames</th>
+	</tr>
+      </thead>
+      <tbody>
+	@foreach($pedidos as $pedido)
+	<tr>
+	  <td>{{ $pedido->id }}</td>
+	  <td>{{ $pedido->medico->nome }}</td>
+	  <td>
+	  <ul>
+	  @foreach($pedido->exames as $exame)
+	  <li>{{$exame->pivot->exame_nome}}</li>
+	  @endforeach
+	  </ul>
+	  </td>
+	</tr>
+	@endforeach
+      </tbody>
+    </table>
+  </div>
 </div>
 @endsection

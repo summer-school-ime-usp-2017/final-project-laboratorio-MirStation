@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Pedido;
 use App\Paciente;
 
 class PacienteController extends Controller
@@ -29,7 +30,8 @@ class PacienteController extends Controller
     }
 
     public function show(Paciente $paciente) {
-    	   return view('paciente.show', compact('paciente'));
+    	   $pedidos = Pedido::where('paciente_id', $paciente->id)->get();
+    	   return view('paciente.show', compact('paciente','pedidos'));
     }
 
     public function edicao(Paciente $paciente) {
